@@ -50,26 +50,53 @@
 
   .menuButton {
     display: block;
+    position: relative;
+    z-index: 1100;
   }
 
   .navLinks {
-    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
 
-    position: absolute;
-    top: 100%;
-    left: 0;
+    width: 280px;
+    height: 100vh;
 
-    width: 100%;
-    padding: 20px;
+    margin: 0;
+    padding: 100px 30px 30px;
 
+    display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 20px;
+    align-items: flex-start;
+    gap: 25px;
 
     background: #111827;
+
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+
+    z-index: 1000;
   }
 
   .navLinks.open {
-    display: flex;
+    transform: translateX(0);
+  }
+
+  .navLinks li {
+    width: 100%;
+  }
+
+  .navLinks a {
+    display: block;
+    width: 100%;
+
+    padding: 12px 15px;
+
+    font-size: 18px;
+    border-radius: 8px;
+  }
+
+  .navLinks a:hover {
+    background: #1e293b;
   }
 }
