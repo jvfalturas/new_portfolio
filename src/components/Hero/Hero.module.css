@@ -1,0 +1,131 @@
+.hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  height: auto;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 40px 20px;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(37, 99, 235, 0.16),
+      transparent 45%
+    );
+
+  animation: fadeUp 0.8s ease-out;
+}
+
+.greeting {
+  color: #60a5fa;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.hero h1 {
+  font-size: clamp(52px, 10vw, 90px);
+  font-weight: 800;
+  letter-spacing: -3px;
+  margin: 0;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff,
+    #60a5fa
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  color: #9ca3af;
+  margin: 10px 0 20px;
+}
+
+.description {
+  max-width: 600px;
+  color: #d1d5db;
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.primaryButton,
+.secondaryButton {
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.primaryButton {
+  background: #2563eb;
+  color: white;
+}
+
+.primaryButton:hover {
+  background: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+.secondaryButton {
+  border: 1px solid #475569;
+  color: white;
+}
+
+.secondaryButton:hover {
+  background: #1e293b;
+  transform: translateY(-3px);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 500px) {
+  .hero {
+    min-height: calc(100vh - 70px);
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    text-align: center;
+  }
+}
