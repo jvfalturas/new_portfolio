@@ -1,4 +1,5 @@
 import ProjectCard from "./ProjectCard";
+import Reveal from "../../components/Reveal";
 import styles from "./Projects.module.css";
 
 const projects = [
@@ -31,28 +32,35 @@ const projects = [
   },
 ];
 
-
 function Projects() {
   return (
     <section id="projects" className={styles.projects}>
       <div className={styles.container}>
-        <p className={styles.label}>MY WORK</p>
+        <Reveal>
+          <p className={styles.label}>MY WORK</p>
+        </Reveal>
 
-        <h2>Projects</h2>
+        <Reveal delay={0.1}>
+          <h2>Projects</h2>
+        </Reveal>
 
         <div className={styles.grid}>
-          {projects.map((project) => (
-            <ProjectCard
+          {projects.map((project, index) => (
+            <Reveal
               key={project.title}
-              title={project.title}
-              description={project.description}
-              tech={project.tech}
-              image={project.image}
-              githubUrl={project.githubUrl}
-              liveUrl={project.liveUrl}
-            />
+              delay={0.15 + index * 0.1}
+              direction="up"
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                tech={project.tech}
+                image={project.image}
+                githubUrl={project.githubUrl}
+                liveUrl={project.liveUrl}
+              />
+            </Reveal>
           ))}
-
         </div>
       </div>
     </section>

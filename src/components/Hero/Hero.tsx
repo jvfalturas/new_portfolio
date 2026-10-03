@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Reveal from "../../components/Reveal";
 import styles from "./Hero.module.css";
 
 const WORDS = ["Vincent", "a Developer", "a Designer"]; // pwede ra ["Vincent"] kung isa ra
@@ -38,30 +39,32 @@ function Hero() {
   }, [displayText, isDeleting, wordIndex]);
 
   return (
-    <section className={styles.hero}>
-      <p className={styles.greeting}>Hello, I'm</p>
+    <Reveal>
+      <section className={styles.hero}>
+        <p className={styles.greeting}>Hello, I'm</p>
 
-      <h1 className={styles.name}>
-        {displayText}
-        <span className={styles.cursor}>|</span>
-      </h1>
+        <h1 className={styles.name}>
+          {displayText}
+          <span className={styles.cursor}>|</span>
+        </h1>
 
-      <h2>Full-Stack Web Developer</h2>
+        <h2>Full-Stack Web Developer</h2>
 
-      <p className={styles.description}>
-        I build modern, responsive, and user-friendly web
-        applications using modern web technologies.
-      </p>
+        <p className={styles.description}>
+          I build modern, responsive, and user-friendly web
+          applications using modern web technologies.
+        </p>
 
-      <div className={styles.actions}>
-        <a href="#projects" className={styles.primaryButton}>
-          View My Projects
-        </a>
-        <a href="#contact" className={styles.secondaryButton}>
-          Contact Me
-        </a>
-      </div>
-    </section>
+        <div className={styles.actions}>
+          <a href="#projects" className={styles.primaryButton}>
+            View My Projects
+          </a>
+          <a href="#contact" className={styles.secondaryButton}>
+            Contact Me
+          </a>
+        </div>
+      </section>
+    </Reveal>
   );
 }
 

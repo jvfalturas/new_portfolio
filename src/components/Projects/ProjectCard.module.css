@@ -1,4 +1,5 @@
 .card {
+  height: 100%;
   overflow: hidden;
   background: #1e293b;
   border-radius: 12px;
@@ -80,4 +81,157 @@
 .links a:hover {
   background: #1d4ed8;
   transform: translateY(-2px);
+}
+
+/* ================================
+   CARD BASE
+   ================================ */
+.card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  position: relative;
+  isolation: isolate;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+/* Subtle glow overlay on top */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 0%,
+    rgba(37, 99, 235, 0.15),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #2563eb;
+  box-shadow: 0 20px 40px rgba(37, 99, 235, 0.25);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* ================================
+   IMAGE
+   ================================ */
+.imageWrapper {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  background: #0f172a;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+}
+
+/* ================================
+   CONTENT
+   ================================ */
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  position: relative;
+  z-index: 2;
+}
+
+.content h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #f9fafb;
+  transition: color 0.3s ease;
+}
+
+.card:hover .content h3 {
+  color: #60a5fa;
+}
+
+.content p {
+  margin: 0;
+  color: #9ca3af;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* ================================
+   TECH TAGS
+   ================================ */
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.techList li {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border: 1px solid rgba(37, 99, 235, 0.3);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.card:hover .techList li {
+  background: rgba(37, 99, 235, 0.25);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+/* ================================
+   LINKS
+   ================================ */
+.links {
+  display: flex;
+  gap: 15px;
+  margin-top: auto;
+  padding-top: 10px;
+}
+
+.links a {
+  color: #60a5fa;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.links a:hover {
+  color: #93c5fd;
+  transform: translateX(4px);
 }
