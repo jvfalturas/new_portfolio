@@ -1,11 +1,10 @@
 .contact {
   padding: 100px 20px;
-  background: #0f172a;
+  background: var(--bg-primary);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle background glow */
 .contact::before {
   content: "";
   position: absolute;
@@ -15,7 +14,7 @@
   height: 700px;
   background: radial-gradient(
     circle,
-    rgba(37, 99, 235, 0.12),
+    var(--blob-color),
     transparent 60%
   );
   transform: translate(-50%, -50%);
@@ -38,7 +37,7 @@
 }
 
 .label {
-  color: #60a5fa;
+  color: var(--accent-light);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -48,11 +47,11 @@
 .heading {
   font-size: 42px;
   margin: 0;
-  color: #f9fafb;
+  color: var(--text-primary);
 }
 
 .description {
-  color: #9ca3af;
+  color: var(--text-muted);
   font-size: 17px;
   line-height: 1.7;
   margin: 0 0 12px;
@@ -66,8 +65,8 @@
   gap: 8px;
   padding: 14px 32px;
   border-radius: 10px;
-  background: #2563eb;
-  color: white;
+  background: var(--accent);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -79,9 +78,13 @@
 }
 
 .primaryButton:hover {
-  background: #1d4ed8;
+  background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+  box-shadow: var(--shadow-glow);
+}
+
+.primaryButton svg {
+  font-size: 18px;
 }
 
 /* Divider */
@@ -91,7 +94,7 @@
   gap: 16px;
   width: 100%;
   margin: 12px 0;
-  color: #6b7280;
+  color: var(--text-dim);
   font-size: 13px;
 }
 
@@ -100,7 +103,7 @@
   content: "";
   flex: 1;
   height: 1px;
-  background: #1f2937;
+  background: var(--border-primary);
 }
 
 /* Socials */
@@ -117,9 +120,9 @@
   gap: 8px;
   padding: 10px 18px;
   border-radius: 10px;
-  background: #111827;
-  border: 1px solid #1f2937;
-  color: #9ca3af;
+  background: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
   font-size: 14px;
@@ -133,14 +136,16 @@
 
 .socialLink:hover {
   transform: translateY(-3px);
-  background: #1e293b;
-  border-color: #2563eb;
-  color: #f9fafb;
+  background: var(--bg-tertiary);
+  border-color: var(--accent);
+  color: var(--text-primary);
 }
 
 .socialIcon {
   font-size: 18px;
   line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
 
 .socialName {
@@ -182,36 +187,4 @@
   .socialLink {
     transition: none;
   }
-}
-
-/* Primary button — i-add ang icon alignment */
-.primaryButton {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 14px 32px;
-  border-radius: 10px;
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 16px;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-/* Icon size sa primary button */
-.primaryButton svg {
-  font-size: 18px;
-}
-
-/* Social icon — SVG sizing */
-.socialIcon {
-  font-size: 18px;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
 }

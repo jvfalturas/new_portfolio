@@ -16,15 +16,9 @@
   padding: 40px 20px;
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 50% 35%,
-      rgba(37, 99, 235, 0.16),
-      transparent 45%
-    );
+  background: var(--gradient-hero);
 }
 
-/* ✨ Floating glow blob */
 .hero::before {
   content: "";
   position: absolute;
@@ -32,7 +26,7 @@
   left: 50%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(37, 99, 235, 0.25), transparent 70%);
+  background: radial-gradient(circle, var(--blob-color), transparent 70%);
   transform: translate(-50%, -50%);
   filter: blur(60px);
   animation: float 8s ease-in-out infinite;
@@ -49,7 +43,7 @@
    TEXT ELEMENTS
    ================================ */
 .greeting {
-  color: #60a5fa;
+  color: var(--accent-light);
   font-size: 18px;
   font-weight: 600;
   letter-spacing: 2px;
@@ -63,7 +57,11 @@
   margin: 0;
   min-height: 1.1em;
 
-  background: linear-gradient(135deg, #ffffff, #60a5fa);
+  background: linear-gradient(
+    135deg,
+    var(--text-primary),
+    var(--accent-light)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -72,21 +70,21 @@
 .cursor {
   display: inline-block;
   margin-left: 4px;
-  color: #60a5fa;
-  -webkit-text-fill-color: #60a5fa;
+  color: var(--accent-light);
+  -webkit-text-fill-color: var(--accent-light);
   font-weight: 300;
   animation: blink 1s step-end infinite;
 }
 
 .hero h2 {
   font-size: clamp(24px, 4vw, 32px);
-  color: #9ca3af;
+  color: var(--text-muted);
   margin: 10px 0 20px;
 }
 
 .description {
   max-width: 600px;
-  color: #d1d5db;
+  color: var(--text-secondary);
   line-height: 1.7;
   font-size: 17px;
 }
@@ -114,23 +112,23 @@
 }
 
 .primaryButton {
-  background: #2563eb;
-  color: white;
+  background: var(--accent);
+  color: #ffffff;
 }
 
 .primaryButton:hover {
-  background: #1d4ed8;
+  background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+  box-shadow: var(--shadow-glow);
 }
 
 .secondaryButton {
-  border: 1px solid #475569;
-  color: white;
+  border: 1px solid var(--border-secondary);
+  color: var(--text-primary);
 }
 
 .secondaryButton:hover {
-  background: #1e293b;
+  background: var(--bg-tertiary);
   transform: translateY(-3px);
 }
 
@@ -178,9 +176,6 @@
   }
 }
 
-/* ================================
-   ACCESSIBILITY
-   ================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
   .cursor {

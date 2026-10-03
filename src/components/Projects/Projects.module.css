@@ -1,33 +1,45 @@
 .projects {
   padding: 100px 20px;
-  background: #0f172a;
+  background: var(--bg-primary);
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
 .label {
-  color: #60a5fa;
+  color: var(--accent-light);
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 2px;
+  margin: 0 0 10px;
 }
 
-.projects h2 {
+.heading {
   font-size: 42px;
-  margin: 10px 0 40px;
+  margin: 0 0 40px;
+  color: var(--text-primary);
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
 @media (max-width: 768px) {
-  .grid {
-    grid-template-columns: 1fr;
+  .heading {
+    font-size: 34px;
+  }
+}
+
+@media (max-width: 500px) {
+  .projects {
+    padding: 80px 16px;
+  }
+
+  .heading {
+    font-size: 28px;
   }
 }

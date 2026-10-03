@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useTheme } from "../../context/ThemeContext";
 import styles from "./Navbar.module.css";
 
 const navItems = [
@@ -12,6 +13,7 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const { theme, toggleTheme } = useTheme();
 
   // Scroll detection
   useEffect(() => {
@@ -20,12 +22,12 @@ function Navbar() {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // initial check
+    handleScroll();
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Scroll spy — detect active section
+  // Scroll spy
   useEffect(() => {
     const sections = navItems
       .map((item) => document.getElementById(item.id))
@@ -82,32 +84,49 @@ function Navbar() {
           Vincent<span className={styles.logoAccent}> HUB</span>
         </a>
 
-        <button
-          className={styles.menuButton}
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Toggle navigation"
-          aria-expanded={isOpen}
-        >
-          {isOpen ? "✕" : "☰"}
-        </button>
+        <div className={styles.rightSide}>
+          <ul className={`${styles.navLinks} ${isOpen ? styles.open : ""}`}>
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={item.href}
+                  onClick={handleLinkClick}
+                  className={
+                    activeSection === item.id ? styles.active : ""
+                  }
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))}
+          </ul>
 
-        <ul
-          className={`${styles.navLinks} ${isOpen ? styles.open : ""}`}
-        >
-          {navItems.map((item) => (
-            <li key={item.id}>
-              <a
-                href={item.href}
-                onClick={handleLinkClick}
-                className={
-                  activeSection === item.id ? styles.active : ""
-                }
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+          <div className={styles.actions}>
+            <button
+              className={styles.themeToggle}
+              onClick={toggleTheme}
+              aria-label="Toggle theme"
+              title={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+            >
+              <span className={styles.iconWrapper}>
+                {theme === "dark" ? "☀️" : "🌙"}
+              </span>
+            </button>
+
+            <button
+              className={styles.menuButton}
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle navigation"
+              aria-expanded={isOpen}
+            >
+              {isOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        </div>
       </nav>
     </>
   );

@@ -37,12 +37,12 @@
 
 /* Scrolled state */
 .navbar.scrolled {
-  background: rgba(15, 23, 42, 0.85);
+  background: var(--bg-secondary);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 14px 60px;
-  border-bottom: 1px solid #1f2937;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border-primary);
+  box-shadow: var(--shadow-md);
 }
 
 /* ================================
@@ -51,7 +51,7 @@
 .logo {
   font-size: 24px;
   font-weight: 800;
-  color: #f9fafb;
+  color: var(--text-primary);
   text-decoration: none;
   letter-spacing: -0.5px;
 
@@ -63,12 +63,12 @@
 }
 
 .logoAccent {
-  color: #60a5fa;
+  color: var(--accent-light);
   transition: color 0.3s ease;
 }
 
 .logo:hover .logoAccent {
-  color: #93c5fd;
+  color: var(--accent-light);
   text-shadow: 0 0 12px rgba(96, 165, 250, 0.6);
 }
 
@@ -87,7 +87,7 @@
   position: relative;
   display: inline-block;
   padding: 8px 16px;
-  color: #9ca3af;
+  color: var(--text-muted);
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
@@ -99,16 +99,16 @@
 }
 
 .navLinks a:hover {
-  color: #f9fafb;
-  background: rgba(37, 99, 235, 0.1);
+  color: var(--text-primary);
+  background: var(--accent-bg);
 }
 
 .navLinks a.active {
-  color: #60a5fa;
-  background: rgba(37, 99, 235, 0.15);
+  color: var(--accent-light);
+  background: var(--accent-bg);
 }
 
-/* Underline indicator para sa active */
+/* Underline indicator */
 .navLinks a.active::after {
   content: "";
   position: absolute;
@@ -118,19 +118,63 @@
   width: 20px;
   height: 2px;
   border-radius: 999px;
-  background: #60a5fa;
+  background: var(--accent-light);
   box-shadow: 0 0 8px rgba(96, 165, 250, 0.6);
 }
 
 /* ================================
-   MENU BUTTON (mobile)
+   ACTIONS WRAPPER
+   ================================ */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ================================
+   THEME TOGGLE
+   ================================ */
+.themeToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+  padding: 0;
+
+  background: var(--bg-tertiary);
+  border: 1px solid var(--border-primary);
+  border-radius: 50%;
+
+  font-size: 18px;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.3s ease;
+}
+
+.themeToggle:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent);
+  transform: scale(1.08) rotate(15deg);
+}
+
+.themeToggle:active {
+  transform: scale(0.95);
+}
+
+/* ================================
+   MENU BUTTON
    ================================ */
 .menuButton {
   display: none;
 
   background: none;
   border: none;
-  color: #f9fafb;
+  color: var(--text-primary);
   font-size: 26px;
   cursor: pointer;
   padding: 4px 10px;
@@ -140,12 +184,12 @@
 }
 
 .menuButton:hover {
-  background: rgba(37, 99, 235, 0.15);
+  background: var(--accent-bg);
   transform: scale(1.05);
 }
 
 /* ================================
-   BACKDROP (mobile)
+   BACKDROP
    ================================ */
 .backdrop {
   display: none;
@@ -165,10 +209,33 @@
   pointer-events: auto;
 }
 
+/* Right side wrapper */
+.rightSide {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+/* Icon wrapper — para sa rotate animation */
+.iconWrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.4s ease;
+}
+
+.themeToggle:hover .iconWrapper {
+  transform: rotate(360deg);
+}
+
 /* ================================
    MOBILE
    ================================ */
 @media (max-width: 600px) {
+  .rightSide {
+    gap: 8px;
+  }
+
   .navbar {
     padding: 16px 20px;
   }
@@ -204,8 +271,8 @@
     align-items: stretch;
     gap: 8px;
 
-    background: #111827;
-    border-left: 1px solid #1f2937;
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-primary);
 
     transform: translateX(100%);
     transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
@@ -228,21 +295,21 @@
     padding: 14px 18px;
     font-size: 16px;
     border-radius: 10px;
-    color: #d1d5db;
+    color: var(--text-secondary);
   }
 
   .navLinks a:hover {
-    background: #1e293b;
-    color: #f9fafb;
+    background: var(--bg-hover);
+    color: var(--text-primary);
   }
 
   .navLinks a.active {
-    background: rgba(37, 99, 235, 0.15);
-    color: #60a5fa;
+    background: var(--accent-bg);
+    color: var(--accent-light);
   }
 
   .navLinks a.active::after {
-    display: none; /* walay underline sa mobile */
+    display: none;
   }
 }
 

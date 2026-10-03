@@ -1,6 +1,6 @@
 .about {
   padding: 100px 20px;
-  background: #0f172a;
+  background: var(--bg-primary);
 }
 
 .container {
@@ -27,8 +27,8 @@
   overflow: hidden;
   margin: 0 auto;
 
-  border: 1px solid #1f2937;
-  background: #111827;
+  border: 1px solid var(--border-primary);
+  background: var(--bg-card);
 }
 
 .image {
@@ -47,7 +47,7 @@
   inset: 0;
   background: radial-gradient(
     circle at 30% 30%,
-    rgba(37, 99, 235, 0.25),
+    var(--blob-color),
     transparent 60%
   );
   opacity: 0;
@@ -69,7 +69,7 @@
 }
 
 .label {
-  color: #60a5fa;
+  color: var(--accent-light);
   font-size: 14px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -79,18 +79,18 @@
 .heading {
   font-size: 42px;
   margin: 0 0 8px;
-  color: #f9fafb;
+  color: var(--text-primary);
 }
 
 .description {
-  color: #9ca3af;
+  color: var(--text-secondary);
   line-height: 1.7;
   font-size: 16px;
   margin: 0;
 }
 
 .highlight {
-  color: #60a5fa;
+  color: var(--accent-light);
   font-weight: 600;
 }
 
@@ -102,8 +102,8 @@
   gap: 30px;
   margin-top: 12px;
   padding: 20px 0;
-  border-top: 1px solid #1f2937;
-  border-bottom: 1px solid #1f2937;
+  border-top: 1px solid var(--border-primary);
+  border-bottom: 1px solid var(--border-primary);
 }
 
 .stat {
@@ -115,14 +115,14 @@
 .statValue {
   font-size: 28px;
   font-weight: 800;
-  color: #60a5fa;
+  color: var(--accent-light);
   letter-spacing: -1px;
-  font-variant-numeric: tabular-nums; /* 👈 ADD THIS */
+  font-variant-numeric: tabular-nums;
 }
 
 .statLabel {
   font-size: 13px;
-  color: #9ca3af;
+  color: var(--text-muted);
   font-weight: 500;
 }
 
@@ -154,23 +154,23 @@
 }
 
 .primaryButton {
-  background: #2563eb;
-  color: white;
+  background: var(--accent);
+  color: #ffffff;
 }
 
 .primaryButton:hover {
-  background: #1d4ed8;
+  background: var(--accent-hover);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+  box-shadow: var(--shadow-glow);
 }
 
 .secondaryButton {
-  border: 1px solid #475569;
-  color: #f9fafb;
+  border: 1px solid var(--border-secondary);
+  color: var(--text-primary);
 }
 
 .secondaryButton:hover {
-  background: #1e293b;
+  background: var(--bg-tertiary);
   transform: translateY(-3px);
 }
 
