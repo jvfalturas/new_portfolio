@@ -17,3 +17,7 @@ body {
 a {
   transition: all 0.2s ease;
 }
+
+section {
+  scroll-margin-top: 80px;
+}

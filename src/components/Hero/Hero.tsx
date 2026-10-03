@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Reveal from "../../components/Reveal";
 import styles from "./Hero.module.css";
 
-const WORDS = ["Vincent", "a Developer", "a Designer"]; // pwede ra ["Vincent"] kung isa ra
+const WORDS = ["Vincent", "a Developer", "a Designer"];
 
 function Hero() {
   const [displayText, setDisplayText] = useState("");
@@ -39,22 +39,28 @@ function Hero() {
   }, [displayText, isDeleting, wordIndex]);
 
   return (
-    <Reveal>
-      <section className={styles.hero}>
+    <section id="hero" className={styles.hero}>
+      <Reveal>
         <p className={styles.greeting}>Hello, I'm</p>
+      </Reveal>
 
-        <h1 className={styles.name}>
-          {displayText}
-          <span className={styles.cursor}>|</span>
-        </h1>
+      <h1 className={styles.name}>
+        {displayText}
+        <span className={styles.cursor}>|</span>
+      </h1>
 
+      <Reveal delay={0.15}>
         <h2>Full-Stack Web Developer</h2>
+      </Reveal>
 
+      <Reveal delay={0.3}>
         <p className={styles.description}>
           I build modern, responsive, and user-friendly web
           applications using modern web technologies.
         </p>
+      </Reveal>
 
+      <Reveal delay={0.45}>
         <div className={styles.actions}>
           <a href="#projects" className={styles.primaryButton}>
             View My Projects
@@ -63,8 +69,8 @@ function Hero() {
             Contact Me
           </a>
         </div>
-      </section>
-    </Reveal>
+      </Reveal>
+    </section>
   );
 }
 

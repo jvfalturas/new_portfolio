@@ -40,7 +40,6 @@
   pointer-events: none;
 }
 
-/* Keep content above the blob */
 .hero > * {
   position: relative;
   z-index: 1;
@@ -57,23 +56,19 @@
   margin-bottom: 10px;
 }
 
-/* Typewriter target (h1) */
 .name {
   font-size: clamp(52px, 10vw, 90px);
   font-weight: 800;
   letter-spacing: -3px;
   margin: 0;
-  min-height: 1.1em; /* prevent layout jump while typing */
+  min-height: 1.1em;
 
   background: linear-gradient(135deg, #ffffff, #60a5fa);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-
-  opacity: 1; /* handled by React typewriter */
 }
 
-/* Blinking cursor */
 .cursor {
   display: inline-block;
   margin-left: 4px;
@@ -140,35 +135,8 @@
 }
 
 /* ================================
-   STAGGERED FADE-IN
-   ================================ */
-.greeting,
-.hero h2,
-.description,
-.actions {
-  opacity: 0;
-  animation: fadeUp 0.8s ease-out forwards;
-}
-
-.greeting    { animation-delay: 0.10s; }
-.hero h2     { animation-delay: 0.40s; }
-.description { animation-delay: 0.55s; }
-.actions     { animation-delay: 0.70s; }
-
-/* ================================
    KEYFRAMES
    ================================ */
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 @keyframes float {
   0%, 100% {
     transform: translate(-50%, -50%) scale(1);
@@ -215,12 +183,7 @@
    ================================ */
 @media (prefers-reduced-motion: reduce) {
   .hero::before,
-  .greeting,
-  .hero h2,
-  .description,
-  .actions,
   .cursor {
     animation: none;
-    opacity: 1;
   }
 }
