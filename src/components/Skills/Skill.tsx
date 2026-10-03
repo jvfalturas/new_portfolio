@@ -15,16 +15,18 @@ const levelPercent: Record<Level, number> = {
   Learning: 45,
 };
 
+const BASE = import.meta.env.BASE_URL;
+
 const techMeta: Record<string, { icon: string; color: string }> = {
-  html:                     { icon: "/icons/html.png",         color: "#e34f26" },
-  css:                      { icon: "/icons/css.svg",          color: "#1572b6" },
-  javascript:               { icon: "/icons/javascript.svg",   color: "#f7df1e" },
-  "javascript (vanilla)":   { icon: "/icons/js.svg",   color: "#f7df1e" },
-  react:                    { icon: "/icons/reactjs.png",        color: "#61dafb" },
-  typescript:               { icon: "/icons/ts.svg",   color: "#3178c6" },
-  git:                      { icon: "/icons/git.png",          color: "#f05032" },
-  "codeigniter 3":          { icon: "/icons/ci.png",  color: "#ee4623" },
-  "angular js":             { icon: "/icons/angularjs.png",    color: "#dd0031" },
+  html:                  { icon: `${BASE}icons/html.png`,      color: "#e34f26" },
+  css:                   { icon: `${BASE}icons/css.svg`,       color: "#1572b6" },
+  javascript:            { icon: `${BASE}icons/js.svg`,        color: "#f7df1e" },
+  "javascript (vanilla)":{ icon: `${BASE}icons/js.svg`,        color: "#f7df1e" },
+  react:                 { icon: `${BASE}icons/reactjs.png`,   color: "#61dafb" },
+  typescript:            { icon: `${BASE}icons/ts.svg`,        color: "#3178c6" },
+  git:                   { icon: `${BASE}icons/git.png`,       color: "#f05032" },
+  "codeigniter 3":       { icon: `${BASE}icons/ci.png`,        color: "#ee4623" },
+  "angular js":          { icon: `${BASE}icons/angularjs.png`, color: "#dd0031" },
 };
 
 const fallbackColor = "#60a5fa";

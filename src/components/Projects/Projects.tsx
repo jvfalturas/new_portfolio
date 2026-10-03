@@ -2,13 +2,15 @@ import ProjectCard from "./ProjectCard";
 import Reveal from "../../components/Reveal";
 import styles from "./Projects.module.css";
 
+const BASE = import.meta.env.BASE_URL;
+
 const projects = [
   {
     title: "Portfolio Website",
     description:
       "A personal portfolio built with HTML, CSS and Native Javascript.",
     tech: ["HTML", "CSS", "Javascript"],
-    image: "/projects/portfolio.png",
+    image: `${BASE}/projects/portfolio.png`,
     githubUrl: "https://github.com/jvfalturas/portfolio.git",
     liveUrl: "https://jvfalturas.github.io/portfolio/",
   },
@@ -17,7 +19,7 @@ const projects = [
     description:
       "A website we created for our clients who wish to have their own fully customized RSVP online.",
     tech: ["HTML", "CSS", "Javascript"],
-    image: "/projects/rsvp.png",
+    image: `${BASE}/projects/rsvp.png`,
     githubUrl: "https://github.com/jvfalturas/Para-Siempre-Studio.git",
     liveUrl: "https://jvfalturas.github.io/Para-Siempre-Studio/",
   },
@@ -26,7 +28,7 @@ const projects = [
     description:
       "Here is our sample of fully responsive customized RSVP website.",
     tech: ["HTML", "CSS", "Javascript"],
-    image: "/projects/samplersvp.png",
+    image: `${BASE}/projects/samplersvp.png`,
     githubUrl: "https://github.com/jvfalturas/melandjibo.git",
     liveUrl: "https://jvfalturas.github.io/melandjibo/",
   },
@@ -35,7 +37,7 @@ const projects = [
     description:
       "A monitoring system intented for treasury department.",
     tech: ["CodeIgniter 3", "Angular Js", "CSS"],
-    image: "/projects/tms.png",
+    image: `${BASE}/projects/tms.png`,
     githubUrl: "",
     liveUrl: "",
   },
@@ -44,7 +46,7 @@ const projects = [
     description:
       "Grab Reconciliation Portal used to track and reconcile sales, revenues and variances.",
     tech: ["CodeIgniter 3", "Angular Js", "CSS"],
-    image: "/projects/grab.png",
+    image: `${BASE}/projects/grab.png`,
     githubUrl: "",
     liveUrl: "",
   },
@@ -53,7 +55,7 @@ const projects = [
     description:
       "Monitoring system mainly for stores pay parking services.",
     tech: ["CodeIgniter 3", "ReactJS", "CSS"],
-    image: "/projects/payparking.png",
+    image: `${BASE}/projects/payparking.png`,
     githubUrl: "",
     liveUrl: "",
   },
