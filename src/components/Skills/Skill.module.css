@@ -1,0 +1,78 @@
+.card {
+  background: #111827;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 18px 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  height: 100%;
+
+  position: relative;
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.12),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: #2563eb;
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.2);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.name {
+  font-weight: 600;
+  color: #f9fafb;
+  font-size: 16px;
+}
+
+.level {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.barTrack {
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: #1f2937;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 999px;
+  box-shadow: 0 0 10px currentColor;
+}

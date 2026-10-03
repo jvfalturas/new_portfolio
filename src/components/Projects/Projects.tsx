@@ -6,29 +6,56 @@ const projects = [
   {
     title: "Portfolio Website",
     description:
-      "A personal portfolio built with React and TypeScript.",
-    tech: ["React", "TypeScript", "CSS"],
-    image: "/projects/portfolio.jpg",
+      "A personal portfolio built with HTML, CSS and Native Javascript.",
+    tech: ["HTML", "CSS", "Javascript"],
+    image: "/projects/portfolio.png",
     githubUrl: "https://github.com/jvfalturas/portfolio.git",
     liveUrl: "https://jvfalturas.github.io/portfolio/",
   },
   {
-    title: "Task Manager",
+    title: "RSVP Bookings & Reservations",
     description:
-      "A simple application for managing daily tasks.",
-    tech: ["React", "TypeScript"],
-    image: "/projects/task-manager.jpg",
-    githubUrl: "https://github.com/yourusername/task-manager",
-    liveUrl: "https://task-manager.com",
+      "A website we created for our clients who wish to have their own fully customized RSVP online.",
+    tech: ["HTML", "CSS", "Javascript"],
+    image: "/projects/rsvp.png",
+    githubUrl: "https://github.com/jvfalturas/Para-Siempre-Studio.git",
+    liveUrl: "https://jvfalturas.github.io/Para-Siempre-Studio/",
   },
   {
-    title: "E-Commerce Website",
+    title: "Sample RSVP Website",
     description:
-      "A responsive online store interface.",
-    tech: ["React", "CSS"],
-    image: "/projects/ecommerce.jpg",
-    githubUrl: "https://github.com/yourusername/ecommerce",
-    liveUrl: "https://ecommerce.com",
+      "Here is our sample of fully responsive customized RSVP website.",
+    tech: ["HTML", "CSS", "Javascript"],
+    image: "/projects/samplersvp.png",
+    githubUrl: "https://github.com/jvfalturas/melandjibo.git",
+    liveUrl: "https://jvfalturas.github.io/melandjibo/",
+  },
+  {
+    title: "Treasury Monitoring System",
+    description:
+      "A monitoring system intented for treasury department.",
+    tech: ["CodeIgniter 3", "Angular Js", "CSS"],
+    image: "/projects/tms.png",
+    githubUrl: "",
+    liveUrl: "",
+  },
+  {
+    title: "Grab Recon",
+    description:
+      "Grab Reconciliation Portal used to track and reconcile sales, revenues and variances.",
+    tech: ["CodeIgniter 3", "Angular Js", "CSS"],
+    image: "/projects/grab.png",
+    githubUrl: "",
+    liveUrl: "",
+  },
+  {
+    title: "Pay Parking",
+    description:
+      "Monitoring system mainly for stores pay parking services.",
+    tech: ["CodeIgniter 3", "ReactJS", "CSS"],
+    image: "/projects/payparking.png",
+    githubUrl: "",
+    liveUrl: "",
   },
 ];
 
