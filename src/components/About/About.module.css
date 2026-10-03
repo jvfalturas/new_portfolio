@@ -1,5 +1,6 @@
 .about {
   padding: 100px 20px;
+  background: #0f172a;
 }
 
 .container {
@@ -116,6 +117,7 @@
   font-weight: 800;
   color: #60a5fa;
   letter-spacing: -1px;
+  font-variant-numeric: tabular-nums; /* 👈 ADD THIS */
 }
 
 .statLabel {
@@ -226,7 +228,6 @@
   }
 }
 
-/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .image,
   .imageGlow,

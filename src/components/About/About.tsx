@@ -1,13 +1,57 @@
+import { useEffect, useRef, useState } from "react";
+import { useInView } from "framer-motion";
 import Reveal from "../../components/Reveal";
 import styles from "./About.module.css";
 
 const BASE = import.meta.env.BASE_URL;
 
 const stats = [
-  { value: "2+", label: "Years Coding" },
-  { value: "6+", label: "Projects Built" },
-  { value: "8+", label: "Technologies" },
+  { value: 2, suffix: "+", label: "Years Coding" },
+  { value: 6, suffix: "+", label: "Projects Built" },
+  { value: 8, suffix: "+", label: "Technologies" },
 ];
+
+type StatItemProps = {
+  value: number;
+  suffix: string;
+  label: string;
+};
+
+function StatItem({ value, suffix, label }: StatItemProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const inView = useInView(ref, { once: true, amount: 0.5 });
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!inView) return;
+    const duration = 1500;
+    const steps = 40;
+    const increment = value / steps;
+    let current = 0;
+
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= value) {
+        setCount(value);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(current));
+      }
+    }, duration / steps);
+
+    return () => clearInterval(timer);
+  }, [inView, value]);
+
+  return (
+    <div ref={ref} className={styles.stat}>
+      <span className={styles.statValue}>
+        {count}
+        {suffix}
+      </span>
+      <span className={styles.statLabel}>{label}</span>
+    </div>
+  );
+}
 
 function About() {
   return (
@@ -56,10 +100,12 @@ function About() {
             <Reveal delay={0.4}>
               <div className={styles.stats}>
                 {stats.map((stat) => (
-                  <div key={stat.label} className={styles.stat}>
-                    <span className={styles.statValue}>{stat.value}</span>
-                    <span className={styles.statLabel}>{stat.label}</span>
-                  </div>
+                  <StatItem
+                    key={stat.label}
+                    value={stat.value}
+                    suffix={stat.suffix}
+                    label={stat.label}
+                  />
                 ))}
               </div>
             </Reveal>
