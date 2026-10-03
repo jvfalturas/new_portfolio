@@ -1,41 +1,217 @@
 .contact {
   padding: 100px 20px;
-  text-align: center;
+  background: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background glow */
+.contact::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.12),
+    transparent 60%
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 .container {
   max-width: 700px;
   margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
 .label {
   color: #60a5fa;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 700;
   letter-spacing: 2px;
+  margin: 0;
 }
 
-.contact h2 {
+.heading {
   font-size: 42px;
-  margin: 10px 0 20px;
+  margin: 0;
+  color: #f9fafb;
 }
 
-.contact p {
-  color: #cbd5e1;
+.description {
+  color: #9ca3af;
+  font-size: 17px;
   line-height: 1.7;
-  margin-bottom: 30px;
+  margin: 0 0 12px;
+  max-width: 500px;
 }
 
-.button {
-  display: inline-block;
-  padding: 12px 24px;
+/* Primary button */
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 10px;
   background: #2563eb;
   color: white;
   text-decoration: none;
-  border-radius: 8px;
-  transition: background 0.2s;
+  font-weight: 600;
+  font-size: 16px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-.button:hover {
+.primaryButton:hover {
   background: #1d4ed8;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.4);
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  margin: 12px 0;
+  color: #6b7280;
+  font-size: 13px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #1f2937;
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.socialLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  background: #111827;
+  border: 1px solid #1f2937;
+  color: #9ca3af;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.socialLink:hover {
+  transform: translateY(-3px);
+  background: #1e293b;
+  border-color: #2563eb;
+  color: #f9fafb;
+}
+
+.socialIcon {
+  font-size: 18px;
+  line-height: 1;
+}
+
+.socialName {
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .contact {
+    padding: 80px 16px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .primaryButton {
+    width: 100%;
+    justify-content: center;
+    padding: 14px 24px;
+  }
+
+  .socialLink {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .socialIcon {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryButton,
+  .socialLink {
+    transition: none;
+  }
+}
+
+/* Primary button — i-add ang icon alignment */
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+/* Icon size sa primary button */
+.primaryButton svg {
+  font-size: 18px;
+}
+
+/* Social icon — SVG sizing */
+.socialIcon {
+  font-size: 18px;
+  line-height: 1;
+  display: inline-flex;
+  align-items: center;
 }
